@@ -10,7 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AHZD">
         <activity
+            android:name=".doctoractivity.DoctorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".nurseactivity.NurseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
