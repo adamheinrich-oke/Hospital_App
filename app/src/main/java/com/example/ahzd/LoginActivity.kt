@@ -78,6 +78,8 @@ class LoginActivity : AppCompatActivity() {
                                                     applicationContext,
                                                     NurseActivity::class.java
                                                 )
+                                                finish()
+
                                                 startActivity(intent)
                                             } else {
                                                 //
@@ -85,6 +87,8 @@ class LoginActivity : AppCompatActivity() {
                                                     applicationContext,
                                                     DoctorActivity::class.java
                                                 )
+                                                finish()
+
                                                 startActivity(intent)
                                             }
 
@@ -95,6 +99,7 @@ class LoginActivity : AppCompatActivity() {
                                         }
                                     }
                                 )
+                               // finish()
                             } else {
                                 Toast.makeText(
                                     applicationContext,
