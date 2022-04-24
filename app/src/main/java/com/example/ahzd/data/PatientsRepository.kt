@@ -9,5 +9,5 @@ class PatientsRepository @Inject constructor(
     private val api: PatientsApi,
 ) {
 
-    suspend fun getApiResponse(query: String): PatientApiResponse = api.searchPatients(query)
+    suspend fun getApiResponse(): List<PatientApiResponse> = api.searchPatients()
 }

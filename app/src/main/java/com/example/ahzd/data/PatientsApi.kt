@@ -10,8 +10,8 @@ interface PatientsApi {
         const val BASE_URL = "http://192.168.0.206:3000/"
     }
 
-    @GET("adamapi/get")
+    @GET("adamapi/get/4")
     suspend fun searchPatients(
-        @Query("q") query: String
-    ): PatientApiResponse
+        //@Query("/") query: String
+    ): List<PatientApiResponse>
 }

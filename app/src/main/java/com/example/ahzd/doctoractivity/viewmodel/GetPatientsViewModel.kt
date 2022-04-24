@@ -13,12 +13,12 @@ class GetPatientsViewModel @Inject constructor(
     private val api: PatientsRepository,
 ) : ViewModel() {
 
-    private val _patientsLiveData = MutableLiveData<PatientApiResponse>()
-    val patientsLiveData = _patientsLiveData as LiveData<PatientApiResponse>
+    private val _patientsLiveData = MutableLiveData<List<PatientApiResponse>>()
+    val patientsLiveData = _patientsLiveData as LiveData<List<PatientApiResponse>>
 
-    fun getPatients(query: String) {
+    fun getPatients() {
         viewModelScope.launch {
-            val response = api.getApiResponse(query)
+            val response = api.getApiResponse()
             _patientsLiveData.postValue(response)
         }
     }
