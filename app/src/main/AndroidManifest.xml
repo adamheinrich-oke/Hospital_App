@@ -4,13 +4,24 @@
 
     <application
         android:allowBackup="true"
+        android:name="com.example.App"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.AHZD">
         <activity
-            android:name=".MainActivity"
+            android:name=".doctoractivity.DoctorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".nurseactivity.NurseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".firebase.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".firebase.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
