@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/addPatient"
-        android:name="com.example.ahzd.nurseactivity.nursefragment.AddPatient"
+        android:name="com.example.ahzd.nurseactivity.nursefragment.AddPatientFragment"
         android:label="AddPatient"
         tools:layout="@layout/addpatient"/>
 </navigation>

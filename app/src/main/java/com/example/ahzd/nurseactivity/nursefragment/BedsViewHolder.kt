@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ahzd.R
 
-class BedsViewHolder(itemView: View, context: Context) : RecyclerView.ViewHolder(itemView) {
+class BedsViewHolder(itemView: View, context: Context,val listener: OnLongClickCallback) : RecyclerView.ViewHolder(itemView) {
 
     private val bedImage = itemView.findViewById(R.id.bedImageImageView) as ImageView
     private val bedNumber = itemView.findViewById(R.id.bedNumberTextView) as TextView
@@ -37,7 +37,7 @@ class BedsViewHolder(itemView: View, context: Context) : RecyclerView.ViewHolder
             itemView.setOnLongClickListener {
                 Toast.makeText(ctx, "Long click detected", Toast.LENGTH_SHORT).show()
                 itemView.foreground = null
-
+                listener.addPatientToBed()
                 return@setOnLongClickListener true
             }
         }

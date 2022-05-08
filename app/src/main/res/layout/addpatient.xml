@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".nurseactivity.nursefragment.AddPatientFragment"
     tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="1dp"
-    tools:context=".nurseactivity.nursefragment.AddPatient">
+    tools:layout_editor_absoluteY="1dp">
 
 
-<EditText
+    <EditText
         android:id="@+id/bed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,12 +24,14 @@
         android:id="@+id/doctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="237dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Doctor"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="449dp" />
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/name"
@@ -63,4 +65,13 @@
         app:layout_constraintBottom_toTopOf="@+id/doctor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Assign patient"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doctor" />
 </androidx.constraintlayout.widget.ConstraintLayout>

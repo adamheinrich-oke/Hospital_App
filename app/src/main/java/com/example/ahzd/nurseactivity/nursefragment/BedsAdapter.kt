@@ -11,7 +11,8 @@ import com.example.ahzd.utils.filterNotIn
 class BedsAdapter(
     context: Context,
     private val listofNumbers: List<Int>,
-    private val listener: OnItemClickListener
+    private val listener: OnItemClickListener,
+    private val listener_second :OnLongClickCallback
 ) :
     RecyclerView.Adapter<BedsViewHolder>() {
     private val apiResponse = mutableListOf(1, 2, 4)
@@ -39,7 +40,7 @@ class BedsAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BedsViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.bed_item, parent, false)
-        return BedsViewHolder(view,ctx)
+        return BedsViewHolder(view,ctx,listener_second)
     }
 
     override fun onBindViewHolder(holder: BedsViewHolder, position: Int) {
