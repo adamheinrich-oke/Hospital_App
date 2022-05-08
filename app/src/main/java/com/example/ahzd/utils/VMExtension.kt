@@ -21,3 +21,9 @@ inline fun <reified VM : ViewModel> Fragment.daggerViewModels(
     VM::class,
     { ownerProducer().viewModelStore },
     { App.component.factory })
+
+
+fun <T> Collection<T>.filterNotIn(collection: Collection<T>): Collection<T> {
+    val set = collection.toSet()
+    return filterNot { set.contains(it) }
+}

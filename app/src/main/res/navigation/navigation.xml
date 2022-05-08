@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nurseBedsOverviewFragment"
-        android:name="com.example.ahzd.nurseactivity.nursefragment.NurseBedsOverviewFragment"
+        android:name="com.example.ahzd.nurseactivity.nursefragment.NurseFragment"
         android:label="fragment_nurse_beds_overview"
         tools:layout="@layout/fragment_nurse_beds_overview" />
 </navigation>

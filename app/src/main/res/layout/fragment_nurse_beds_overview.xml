@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".nurseactivity.nursefragment.NurseBedsOverviewFragment">
+    tools:context=".nurseactivity.nursefragment.NurseFragment">
 
     <androidx.recyclerview.widget.RecyclerView
 

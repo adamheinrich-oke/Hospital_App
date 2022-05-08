@@ -1,50 +1,57 @@
 package com.example.ahzd.nurseactivity.nursefragment
 
+import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ahzd.R
-import com.google.android.gms.common.api.Api
+import com.example.ahzd.utils.filterNotIn
 
-class BedsAdapter(private val listofNumbers: List<String>, private val image: Int) :
-    RecyclerView.Adapter<BedsAdapter.BedsViewHolder>() {
+class BedsAdapter(
+    context: Context,
+    private val listofNumbers: List<Int>,
+    private val listener: OnItemClickListener
+) :
+    RecyclerView.Adapter<BedsViewHolder>() {
+    private val apiResponse = mutableListOf(1, 2, 4)
+     var positionsClickable = listofNumbers.filterNotIn(apiResponse)
+    private val startingClickable = positionsClickable
 
-    val ApiResponse = arrayListOf("1","2","4")
+    private var ctx = context
 
-     class BedsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    fun getAll() {
+        positionsClickable = startingClickable
+        //Log.d("Refresh",positionsClickable.toString())
+        notifyDataSetChanged()
+    }
 
-        val bedImage = itemView.findViewById(R.id.bedImageImageView) as ImageView
-        val bedNumber = itemView.findViewById(R.id.bedNumberTextView) as TextView
 
-
-       fun  init (item:String,isTaken:Boolean,image:Int){
-
-            itemView.setOnClickListener {
-                val  position = bindingAdapterPosition + 1
-                Toast.makeText(itemView.context,"Item clicked on position -> $position",Toast.LENGTH_SHORT).show()
-            }
-
-           bedNumber.text = item
-           bedImage.setImageResource(image)
-           bedNumber.paint.isStrikeThruText = isTaken
-        }
+    fun setClickablePosition(position: Int): Int {
+        val mutableList = positionsClickable.toMutableList()
+        mutableList.clear()
+        mutableList.add(position)
+        this.positionsClickable = mutableList
+        notifyDataSetChanged()
+        return position
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BedsViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.bed_item, parent, false)
-        return BedsViewHolder(view)
+        return BedsViewHolder(view,ctx)
     }
 
     override fun onBindViewHolder(holder: BedsViewHolder, position: Int) {
 
         val item = listofNumbers[position]
-        val isTaken = ApiResponse.any { itemTaken -> itemTaken == item }
-        holder.init(item,isTaken,R.drawable.beddd)
+        val isTaken = apiResponse.any { itemTaken -> itemTaken == item }
+        val isClickable = positionsClickable.any { canBeClicked -> canBeClicked == position }
+        holder.init(item, isTaken, R.drawable.bed,isClickable)
+
+        Log.d("TestClickable", isClickable.toString())
+        Log.d("TestPosition", position.toString())
+
 
     }
 
