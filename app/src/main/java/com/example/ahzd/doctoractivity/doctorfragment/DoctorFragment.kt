@@ -32,7 +32,6 @@ class DoctorFragment:Fragment(R.layout.doctorfragment) ,OnPatientClicked{
         }
 
         viewModel.patientsLiveData.observe(viewLifecycleOwner) {
-            //Log.d("Response",it.toString())
             adapterPatients.setPatientList(it)
         }
 
@@ -41,7 +40,7 @@ class DoctorFragment:Fragment(R.layout.doctorfragment) ,OnPatientClicked{
     }
 
     override fun onClick(patient: PatientApiResponse) {
-        //
+
     }
 
 

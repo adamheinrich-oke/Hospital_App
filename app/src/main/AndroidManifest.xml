@@ -18,10 +18,10 @@
             android:name=".nurseactivity.NurseActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".firebase.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".firebase.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

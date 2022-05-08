@@ -1,4 +1,4 @@
-package com.example.ahzd
+package com.example.ahzd.firebase
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ahzd.R
 import com.example.ahzd.doctoractivity.DoctorActivity
 import com.example.ahzd.nurseactivity.NurseActivity
 import com.google.firebase.auth.FirebaseAuth
