@@ -10,4 +10,6 @@ data class Patient(
     @SerializedName("bed") val bed: Int?,
     @SerializedName("age") val age: Int?,
     @SerializedName("doctor") val doctor: Int?,
-) : Serializable
+    @SerializedName("image") val image: String?,
+
+    ) : Serializable
