@@ -9,5 +9,14 @@
         android:id="@+id/nurseBedsOverviewFragment"
         android:name="com.example.ahzd.nurseactivity.nursefragment.NurseFragment"
         android:label="fragment_nurse_beds_overview"
-        tools:layout="@layout/fragment_nurse_beds_overview" />
+        tools:layout="@layout/fragment_nurse_beds_overview" >
+        <action
+            android:id="@+id/action_nurseBedsOverviewFragment_to_addPatient"
+            app:destination="@id/addPatient" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPatient"
+        android:name="com.example.ahzd.nurseactivity.nursefragment.AddPatient"
+        android:label="AddPatient"
+        tools:layout="@layout/addpatient"/>
 </navigation>
