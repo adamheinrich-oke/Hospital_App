@@ -3,6 +3,7 @@ package com.example.ahzd.firebase
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -27,6 +28,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide();
         setContentView(R.layout.activity_login)
 
         auth = FirebaseAuth.getInstance()
@@ -114,7 +116,6 @@ class LoginActivity : AppCompatActivity() {
         }
         signUpButton.setOnClickListener {
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
-
         }
     }
 }

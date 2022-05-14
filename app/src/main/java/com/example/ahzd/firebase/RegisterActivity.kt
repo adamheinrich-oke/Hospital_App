@@ -1,15 +1,18 @@
 package com.example.ahzd.firebase
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ahzd.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import kotlin.math.log
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -21,9 +24,10 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var auth: FirebaseAuth
     var databaseReference: DatabaseReference? = null
     var database: FirebaseDatabase? = null
-
+    lateinit var loginView: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide();
         setContentView(R.layout.activity_register)
 
         auth = FirebaseAuth.getInstance()
@@ -33,14 +37,17 @@ class RegisterActivity : AppCompatActivity() {
         emailEditText = findViewById(R.id.userNameTextField)
         passwordEditText = findViewById(R.id.passwordTextField)
         occupancyEditText = findViewById(R.id.occupancyEditText)
+        loginView = findViewById(R.id.SignUpButton)
+        loginView.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+        }
 
         signUpButton.setOnClickListener {
             when {
                 TextUtils.isEmpty(emailEditText.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this@RegisterActivity,
-                        "Please enter email",
-                        Toast.LENGTH_SHORT
+                        "Please enter email", Toast.LENGTH_SHORT
                     ).show()
                 }
                 TextUtils.isEmpty(passwordEditText.text.toString().trim { it <= ' ' }) -> {
@@ -53,7 +60,7 @@ class RegisterActivity : AppCompatActivity() {
                 else -> {
                     val email: String = emailEditText.text.toString().trim { it < ' ' }
                     val password: String = passwordEditText.text.toString().trim { it < ' ' }
-                    val occupancy : String = occupancyEditText.text.toString().trim { it < ' ' }
+                    val occupancy: String = occupancyEditText.text.toString().trim { it < ' ' }
                     auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
                         if (it.isSuccessful) {
                             val currentUser = auth.currentUser
@@ -74,11 +81,8 @@ class RegisterActivity : AppCompatActivity() {
                             ).show()
                         }
                     }
-
                 }
-
             }
-
         }
     }
 }

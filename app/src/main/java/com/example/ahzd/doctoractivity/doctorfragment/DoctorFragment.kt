@@ -1,7 +1,6 @@
 package com.example.ahzd.doctoractivity.doctorfragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
@@ -12,12 +11,14 @@ import com.example.ahzd.doctoractivity.viewmodel.GetPatientsViewModel
 import com.example.ahzd.model.PatientApiResponse
 import com.example.ahzd.utils.daggerViewModels
 
-class DoctorFragment:Fragment(R.layout.doctorfragment) ,OnPatientClicked{
+class DoctorFragment : Fragment(R.layout.doctorfragment), OnPatientClicked {
 
     val viewModel: GetPatientsViewModel by daggerViewModels { requireActivity() }
     private val adapterPatients: PatientsAdapter = PatientsAdapter(this)
     private lateinit var recyclerView: RecyclerView
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         super.onViewCreated(view, savedInstanceState)
 
         DaggerGetPatientComponent.builder()
@@ -35,13 +36,11 @@ class DoctorFragment:Fragment(R.layout.doctorfragment) ,OnPatientClicked{
             adapterPatients.setPatientList(it)
         }
 
-         viewModel.getPatients()
+        viewModel.getPatients()
 
     }
 
     override fun onClick(patient: PatientApiResponse) {
 
     }
-
-
 }
