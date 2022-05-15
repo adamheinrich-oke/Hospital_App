@@ -37,7 +37,7 @@ class PatientDetailsFragment : Fragment(R.layout.patientdetails) {
 
         namePatient.text = args.dane.patient.name + " " + args.dane.patient.surname
         age.text = "Age:  " + (countAge(args.dane.patient.age ?: 0)).toString()
-        bed.text = "Bed:  " + args.dane.patient.bed.toString() 
+        bed.text = "Bed:  " + args.dane.patient.bed.toString()
         summary.text = resources.getText(R.string.lorem_patient)
     }
 
