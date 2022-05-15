@@ -8,6 +8,6 @@ import com.example.ahzd.R
 
 class PatientsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    val name = itemView.findViewById(R.id.PatientName) as TextView
+    val name = itemView.findViewById(R.id.patientNameTextView) as TextView
     val photo = itemView.findViewById(R.id.patientImageView) as ImageView
 }

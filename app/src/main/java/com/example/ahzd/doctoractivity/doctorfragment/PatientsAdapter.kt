@@ -9,7 +9,8 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.ahzd.R
 import com.example.ahzd.model.PatientApiResponse
 
-class PatientsAdapter(private val listener: OnPatientClicked) : RecyclerView.Adapter<PatientsViewHolder>() {
+class PatientsAdapter(private val listener: OnPatientClicked) :
+    RecyclerView.Adapter<PatientsViewHolder>() {
 
     var patients = mutableListOf<PatientApiResponse>()
 
@@ -33,14 +34,15 @@ class PatientsAdapter(private val listener: OnPatientClicked) : RecyclerView.Ada
         position: Int,
     ) {
         val patient = patients[position]
-        holder.name.text = patient.patient.name +" "+ patient.patient.surname
-        Glide.with(holder.itemView.context).load(patient.patient.image).apply(RequestOptions.circleCropTransform())
+        holder.name.text = patient.patient.name + " " + patient.patient.surname
+        Glide.with(holder.itemView.context).load(patient.patient.image)
+            .apply(RequestOptions.circleCropTransform())
             .into(holder.photo)
 
-
-        //   holder.itemView.setOnClickListener {
-        //listener.onClick(patient) }
-        // }
+        holder.itemView.setOnClickListener {
+            listener.onClick(patient)
+        }
     }
+
     override fun getItemCount(): Int = patients.size
 }

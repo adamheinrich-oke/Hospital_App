@@ -2,7 +2,10 @@ package com.example.ahzd.doctoractivity.doctorfragment
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.example.App
 import com.example.ahzd.R
@@ -10,6 +13,7 @@ import com.example.ahzd.di.DaggerGetPatientComponent
 import com.example.ahzd.doctoractivity.viewmodel.GetPatientsViewModel
 import com.example.ahzd.model.PatientApiResponse
 import com.example.ahzd.utils.daggerViewModels
+
 
 class DoctorFragment : Fragment(R.layout.doctorfragment), OnPatientClicked {
 
@@ -30,6 +34,8 @@ class DoctorFragment : Fragment(R.layout.doctorfragment), OnPatientClicked {
         recyclerView.apply {
             setHasFixedSize(true)
             adapter = adapterPatients
+            addItemDecoration(DividerItemDecoration(
+                    recyclerView.context, DividerItemDecoration.VERTICAL))
         }
 
         viewModel.patientsLiveData.observe(viewLifecycleOwner) {
@@ -41,6 +47,8 @@ class DoctorFragment : Fragment(R.layout.doctorfragment), OnPatientClicked {
     }
 
     override fun onClick(patient: PatientApiResponse) {
-
+        val action = DoctorFragmentDirections.actionDoctorFragmentToPatientDetailsFragment(patient)
+        findNavController().navigate(action)
     }
+
 }

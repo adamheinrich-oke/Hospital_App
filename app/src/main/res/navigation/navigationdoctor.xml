@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigationdoctor"
     app:startDestination="@id/doctorFragment">
 
     <fragment
         android:id="@+id/doctorFragment"
         android:name="com.example.ahzd.doctoractivity.doctorfragment.DoctorFragment"
-        android:label="DoctorFragment" />
+        android:label="DoctorFragment"
+        tools:layout ="@layout/doctorfragment">
+        <action
+            android:id="@+id/action_doctorFragment_to_patientDetailsFragment"
+            app:destination="@id/patientDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/patientDetailsFragment"
+        android:name="com.example.ahzd.doctoractivity.doctorfragment.PatientDetailsFragment"
+        android:label="PatientDetailsFragment"
+        tools:layout="@layout/patientdetails">
+        <argument
+            android:name="dane"
+            app:argType="com.example.ahzd.model.PatientApiResponse" />
+    </fragment>
 </navigation>

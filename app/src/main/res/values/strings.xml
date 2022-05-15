@@ -2,4 +2,7 @@
     <string name="app_name">AHZD</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lorem_patient">
+        Cras porttitor a quam quis molestie. Sed pretium ullamcorper nibh. Duis eleifend lacus consectetur lacus pharetra, ac finibus dolor tempor. Aenean eget dui id eros lobortis luctus. Integer sed malesuada metus, fringilla tempus risus. Cras eleifend ullamcorper ligula nec fringilla. Praesent et lectus velit.
+    </string>
 </resources>
